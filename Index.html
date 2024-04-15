@@ -1,15 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
  <head>
-  <title>My Personal Introduction</title>
+  <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+  <script defer src="https://pyscript.net/latest/pyscript.js"></script>
   <style>
-   body{ background-color: #14cfc6; }
-   h1 { color: #d2e932; }
-   p { color: #f5a421; }
-  </style>
- </head>
- <body>
-  <h1>My name is Lance Garrett</h1>
-  <p>>My name is Lance Garrett. I'm a student at Wake Tech pursuing my associates in Cybersecurity. In the future I would like to use my degree to work in Information technology. In my personal life I enjoy outdoor activities like running and playing basketball. I also take up videogames and fashion as a hobby.</p>
- </body>
+label{
+   display:block;
+}
+   </style>
+</head>
+<body>
+<py-config>
+	packages = ['numpy']
+</py-config>
+<py-script>
+['numpy']
+	import numpy as np
+	selection - np.random.randint(0,100,1)[0]
+</py-script>
+<form>
+	<label for="guess">Guess:</label><input name="guess" id="guess">
+
+	<button type="button" id="submit">Check Guess</button>
+	<label for="result">Result:</label><div name="result" id="result"></div>
+</form>
+
+<py-script>
+from pyscript import when
+@when("click", selector="#submit")
+def check guess():
+   user_guess = int(Element("guess").value)
+   result =Element("result")
+   if user guess = selection:
+	result.write("Congratulations! You guessed correctly.")
+   elif user_guess > selection:
+	result.write("Try again! Your guess was too high.")
+   else:
+	result.write("Try again! Your guess was too low.")
+</py-script>
+</body>
 </html>
